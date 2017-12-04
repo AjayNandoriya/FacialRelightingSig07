@@ -37,7 +37,7 @@ function results = relight(img, pt, imgRefA, ptRefA, imgRefB, ptRefB)
     img_crop = hsv2rgb(hsv_image);
     
     % calculate the ratio image and remove some of the spikes
-    C = (imfilter(imgRefA,fspecial('average', win), 'same')+0.001)./(imfilter(imgRefB,fspecial('average', win), 'same')+0.001);
+    C = (imfilter(imgRefA,fspecial('average', 3), 'same')+0.001)./(imfilter(imgRefB,fspecial('average', 3), 'same')+0.001);
     C = C.*mask;
     
     % perform illumination transform using Ratio 
